@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:final620710724/models/team_item.dart';
+import 'package:final620710724/pages/food_list/result.dart';
 import 'package:final620710724/services/api.dart';
 
 class FoodListPage extends StatefulWidget {
@@ -84,7 +85,7 @@ class _FoodListPageState extends State<FoodListPage> {
                     primary: Colors.redAccent,
                   ),
                   onPressed: () {
-                    _fetchData();
+                    Navigator.pushNamed(context, Result.routeName,);
                   },
                   child: const Text('View Result'),
                 ),
@@ -111,6 +112,16 @@ class _FoodListPageState extends State<FoodListPage> {
       setState(() {
         _errMessage = e.toString();
         _isLoading = false;
+      });
+    }
+  }
+
+  void _Vote(int index) async {
+    try {
+      await Api().vote(index);
+    } catch (e) {
+      setState(() {
+        _errMessage = e.toString();
       });
     }
   }
@@ -155,7 +166,7 @@ class _FoodListPageState extends State<FoodListPage> {
                   primary: Colors.redAccent,
                 ),
                 onPressed: () {
-                  _fetchData();
+                  _Vote(index+1);
                 },
                 child: const Text('Vote'),
               ),

@@ -23,7 +23,7 @@ class TeamItem {
     );
   }
 
-  // teamd constructor
+  // team constructor
   TeamItem.fromJson2(Map<String, dynamic> json)
       : id = json['id'],
         team = json['team'],
