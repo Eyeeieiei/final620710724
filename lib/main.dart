@@ -4,7 +4,7 @@ import 'package:final620710724/pages/food_list/home_page.dart';
 import 'package:final620710724/pages/food_list/result.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyApp())
 }
 
 class MyApp extends StatelessWidget {
